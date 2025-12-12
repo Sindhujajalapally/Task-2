@@ -1,7 +1,8 @@
 // src/pages/VerifiedUsers.jsx
 import React, { useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import verifiedUsersSlice from "../store/slices/VerifiedUsersSlice";
+import something from "../store/slices/verifiedUsersSlice";
+
 
 
 const VerifiedUsers = () => {
