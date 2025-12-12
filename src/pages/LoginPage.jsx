@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { login } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom"; // ⭐ add this
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import bg from "../assets/bgimage.jpg";
+import bg from "../assets/bgimage.jpg?url";
+
 
 export default function LoginPage() {
   const dispatch = useDispatch();
