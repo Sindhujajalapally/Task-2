@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../store/slices/authSlice";
-import { useNavigate } from "react-router-dom";   // ⭐ add this
+import { useNavigate } from "react-router-dom"; // ⭐ add this
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import bg from "../assets/bgimage.jpg";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();                 // ⭐ add this
-const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // ⭐ add this
+  const [showPassword, setShowPassword] = useState(false);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,14 +20,14 @@ const [showPassword, setShowPassword] = useState(false);
     // ADMIN LOGIN
     if (username === "admin" && password === "Markwave@2025") {
       dispatch(login({ username: "admin", role: "admin" }));
-      navigate("/referral");   // ⭐ redirect
+      navigate("/referral"); // ⭐ redirect
       return;
     }
 
     // SUPERADMIN LOGIN
     if (username === "superadmin" && password === "superadmin@2025") {
       dispatch(login({ username: "superadmin", role: "superadmin" }));
-      navigate("/referral");   // ⭐ redirect
+      navigate("/referral"); // ⭐ redirect
       return;
     }
 
@@ -37,8 +38,8 @@ const [showPassword, setShowPassword] = useState(false);
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center p-4"
       style={{
-        backgroundImage:
-          "url('/src/assets/bgimage.jpg')",
+        backgroundImage: `url(${bg})`,
+
       }}
     >
       <div className="bg-white/80 backdrop-blur-lg shadow-2xl rounded-2xl p-8 w-full max-w-xs transform translate-x-6">
@@ -56,24 +57,22 @@ const [showPassword, setShowPassword] = useState(false);
           </div>
 
           <div className="relative">
-  <input
-    type={showPassword ? "text" : "password"}
-    className="w-full border p-2 rounded pr-10"
-    placeholder="Enter password"
-    value={password}
-    onChange={(e) => setPassword(e.target.value)}
-  />
+            <input
+              type={showPassword ? "text" : "password"}
+              className="w-full border p-2 rounded pr-10"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-  {/* Toggle Icon */}
-  <span
-  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600"
-  onClick={() => setShowPassword(!showPassword)}
->
-  {showPassword ? <FaEyeSlash /> : <FaEye />}
-</span>
-
-</div>
-
+            {/* Toggle Icon */}
+            <span
+              className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
           <button
             type="submit"
