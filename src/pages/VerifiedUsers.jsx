@@ -1,7 +1,8 @@
 // src/pages/VerifiedUsers.jsx
 import React, { useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUserField } from "../store/slices/VerifiedUsersSlice";
+import verifiedUsersSlice from "../store/slices/VerifiedUsersSlice";
+
 
 const VerifiedUsers = () => {
   const dispatch = useDispatch();
